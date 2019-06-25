@@ -10,3 +10,4 @@ pg_dump -F c -v -U mysuperuser2 -h localhost new_test_guru -f $DIR/1.psql
 
 $ pg_dump -F c -v -U mysuperuser2 -h localhost new_test_guru -f `pwd`/db/dump/1.psql
 
+
