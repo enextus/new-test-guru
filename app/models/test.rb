@@ -1,6 +1,15 @@
 class Test < ApplicationRecord
-  def self.listing_by_category(category_name)
+  def self.listing_of_tests_by_category_name(category_name)
     ids = Category.where(title: category_name).ids
     Test.where("category_id = :category_id", category_id: ids).order(title: :desc).pluck(:title)
   end
 end
+
+# irb(main):049:0> pp Test.listing_of_tests_by_category_name('Frontend')
+#    (0.7ms)  SELECT "categories"."id" FROM "categories" WHERE "categories"."title" = $1  [["title", "Frontend"]]
+#    (0.8ms)  SELECT "tests"."title" FROM "tests" WHERE (category_id = 1) ORDER BY "tests"."title" DESC
+# ["3. Test for category: Frontend",
+#  "2. Test for category: Frontend",
+#  "1. Test for category: Frontend"]
+# => ["3. Test for category: Frontend", "2. Test for category: Frontend", "1. Test for category: Frontend"]
+#
