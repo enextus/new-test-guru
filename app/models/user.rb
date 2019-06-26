@@ -13,6 +13,5 @@ class User < ApplicationRecord
     pp objs_arr
 
     pp objs_arr_level = Test.where("level = :level", level: level)
-
   end
 end

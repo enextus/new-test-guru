@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2019_06_26_102254) do
   end
 
   create_table "initiated_tests", force: :cascade do |t|
-    t.bigint "tests_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tests_id"], name: "index_initiated_tests_on_tests_id"
-    t.index ["users_id"], name: "index_initiated_tests_on_users_id"
+    t.index ["test_id"], name: "index_initiated_tests_on_test_id"
+    t.index ["user_id"], name: "index_initiated_tests_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_06_26_102254) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "initiated_tests", "tests", column: "tests_id"
-  add_foreign_key "initiated_tests", "users", column: "users_id"
+  add_foreign_key "initiated_tests", "tests"
+  add_foreign_key "initiated_tests", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
 end
