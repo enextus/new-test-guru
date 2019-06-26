@@ -1,17 +1,14 @@
 class User < ApplicationRecord
   def tests_by_level(level)
     user_id = self.id
-    ids_arr = InitiatedTest.where(user_id: user_id).pluck(:test_id)
+    tests_ids_by_this_user = InitiatedTest.where(user_id: user_id).pluck(:test_id)
 
-    # pp ids_arr
-    # [1, 2, 3]
+    @arr = []
 
-    # objs_arr = Test.find(ids_arr)
+    tests_ids_by_this_user.map do |id|
+      @arr << Test.where("id = :id AND level = :level", id: id, level: level)
+    end
 
-    objs_arr = Test.where("id = :ids_arr", ids_arr: ids_arr)
-
-    pp objs_arr
-
-    pp objs_arr_level = Test.where("level = :level", level: level)
+    @arr
   end
 end
