@@ -1,0 +1,2 @@
+class AddInitiatedtestsTestsIdNullConstraint < ApplicationRecord
+end
