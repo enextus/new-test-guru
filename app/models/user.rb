@@ -8,4 +8,22 @@ class User < ApplicationRecord
   end
 end
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# SELECT tests.title
+# FROM tests
+# INNER JOIN initiated_tests
+# ON initiated_tests.test_id = tests.id AND tests.level = 3
+# ;
+#              title
+# --------------------------------
+#  1. Test for category: Frontend
+#  1. Test for category: Frontend
+#  1. Test for category: Frontend
+#  Test for category: Backend
+#  1. Test for category: Frontend
+#  Test for category: Backend
+#  2. Test for category: Frontend
+#  Test for category: Backend
+#  2. Test for category: Frontend
+# (9 rows)
