@@ -1,0 +1,14 @@
+
+
+# save 0
+pg_dump -F c -v -U mysuperuser2 -h localhost new_test_guru -f /home/enextus/projects/rails_thinknetica/new-test-guru/db/dump/1.psql
+
+# save 1
+DIR=/home/enextus/projects/rails_thinknetica/new-test-guru/db/dump;
+pg_dump -F c -v -U mysuperuser2 -h localhost new_test_guru -f $DIR/2.psql
+
+# save 2
+pg_dump -F c -v -U mysuperuser2 -h localhost new_test_guru -f `pwd`/db/dump/1.psql
+
+# restore
+pg_restore -c -C -F c -v -U postgres /tmp/new_test_guru.psql
