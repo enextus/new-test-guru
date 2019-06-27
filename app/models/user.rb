@@ -1,10 +1,6 @@
 class User < ApplicationRecord
-
   def tests_by_level(level)
-    user_id = self.id
-    InitiatedTest.where(user_id: user_id).pluck(:test_id).map do |id|
-      Test.where("id = :id AND level = :level", id: id, level: level).first
-    end
+      Test.joins("INNER JOIN initiated_tests ON initiated_tests.test_id = tests.id AND tests.level = #{level}").pluck(:title)
   end
 end
 
