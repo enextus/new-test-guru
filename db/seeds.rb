@@ -46,3 +46,7 @@ answers = questions.map do |question|
 end
 
 # #################################################################
+
+initiated_tests = tests.map do |test|
+  InitiatedTest.create(test_id: test.id, user_id: User.ids.sample)
+end
