@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -50,6 +54,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'seedbank', '~> 0.5.0'
   gem 'sprig-reap', '~> 0.3.0'
+  gem 'graphviz', '~> 1.1'
+  gem 'ruby-graphviz', '~> 1.2', '>= 1.2.4'
+  gem 'rails-erd', '~> 1.6'
+  gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 end
 
 group :test do

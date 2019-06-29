@@ -1,2 +1,0 @@
-class ChangeColumnNull < ApplicationRecord
-end
