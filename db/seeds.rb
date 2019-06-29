@@ -23,7 +23,7 @@ categories = Category.create(categories)
 # #################################################################
 
 tests = categories.map do |category|
-  Test.create(title: "Test for category: #{category.title}", level: [1,2,3].sample, category_id: category.id)
+  Test.create(title: "Test for category: #{category.title}", level: [1, 2, 3].sample, category_id: category.id)
 end
 
 # #################################################################
@@ -41,7 +41,7 @@ end
 # #################################################################
 
 initiated_tests = tests.map do |test|
-  InitiatedTest.create(test_id: test.id, user_id: User.ids.sample)
+  InitiatedTest.create(test_id: test.id, user_id: User.ids.sample, progress: [10, 30, 50 , 70, 100].sample)
 end
 
 # #################################################################
