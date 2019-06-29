@@ -1,12 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-#  1 | users      | table |
-#  2 | categories | table |
-#  3 | tests      | table |
-#  4 | questions  | table |
-#  5 | answers    | table |
-#
 # #################################################################
 
 users = [
@@ -50,3 +43,5 @@ end
 initiated_tests = tests.map do |test|
   InitiatedTest.create(test_id: test.id, user_id: User.ids.sample)
 end
+
+# #################################################################
