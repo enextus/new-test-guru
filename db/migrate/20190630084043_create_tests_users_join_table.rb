@@ -6,5 +6,4 @@ class CreateTestsUsersJoinTable < ActiveRecord::Migration[5.2]
   end
 end
 
-
 # t.index :progress, :integer, null: false, default: 0
