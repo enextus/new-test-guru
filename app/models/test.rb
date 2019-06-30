@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   has_many :questions
   belongs_to :category
-  has_many :initiated_tests
+  has_and_belongs_to_many :users
 
   def self.listing_by_category_title(category_title)
     Test.joins("INNER JOIN categories ON tests.category_id = categories.id").where("categories.title = :category_title", category_title: category_title).order(title: :desc).pluck(:title)

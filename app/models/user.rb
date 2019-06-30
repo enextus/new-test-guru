@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :initiated_tests
+  has_and_belongs_to_many :tests
 
   def tests_by_level(level)
       Test.joins("INNER JOIN initiated_tests ON initiated_tests.test_id = tests.id").where(level: level)
