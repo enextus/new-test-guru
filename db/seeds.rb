@@ -26,8 +26,9 @@ answers = questions.map do |question|
   Answer.create(body: "Answer for question: #{question.body}", question_id: question.id)
 end
 
-# tests_users = users.map do |user|
-#   user.tests.push(Test.all.sample)
-# end
+tests_users = tests.map do |test|
+  TestsUsers.create(test_id: test.id, user_id: User.ids.sample)
+end
 
+# user.tests.push(Test.all.sample)
 # progress: rand(1..100)
