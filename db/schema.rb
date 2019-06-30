@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_084043) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
-    t.boolean "correct", default: false
+    t.boolean "correct", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "question_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_084043) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level", default: 0
+    t.integer "level", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_084043) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "admin", default: false
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
