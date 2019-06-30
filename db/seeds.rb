@@ -27,8 +27,5 @@ answers = questions.map do |question|
 end
 
 tests_users = tests.map do |test|
-  TestsUsers.create(test_id: test.id, user_id: User.ids.sample)
+  TestsUsers.create(test_id: test.id, user_id: User.ids.sample, progress: rand(1..100))
 end
-
-# user.tests.push(Test.all.sample)
-# progress: rand(1..100)
