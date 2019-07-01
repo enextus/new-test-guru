@@ -15,7 +15,7 @@ categories = [
 categories = Category.create(categories)
 
 tests = categories.map do |category|
-  Test.create(title: "Test for category: #{category.title}", level: [1, 2, 3].sample, category_id: category.id)
+    Test.create(title: "Test for category: #{category.title}", level: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample, category_id: category.id)
 end
 
 questions = tests.map do |test|
