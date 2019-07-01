@@ -1,5 +1,3 @@
-tests = []
-
 users = [
   { name: 'admin', admin: true },
   { name: 'adam' },
@@ -16,6 +14,7 @@ categories = [
 
 categories = Category.create(categories)
 
+tests = []
 categories.map do |category|
     rand(3..5).times { tests << Test.create(title: "Test for category: '#{category.title}'", level: rand(1..10), category_id: category.id) }
 end
