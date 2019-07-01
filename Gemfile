@@ -57,7 +57,6 @@ group :development do
   gem 'graphviz', '~> 1.1'
   gem 'ruby-graphviz', '~> 1.2', '>= 1.2.4'
   gem 'rails-erd', '~> 1.6'
-  gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 end
 
 group :test do
