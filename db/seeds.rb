@@ -1,3 +1,5 @@
+tests = []
+
 users = [
   { name: 'admin', admin: true },
   { name: 'adam' },
@@ -14,16 +16,16 @@ categories = [
 
 categories = Category.create(categories)
 
-tests = categories.map do |category|
-    Test.create(title: "Test for category: #{category.title}", level: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample, category_id: category.id)
+categories.map do |category|
+    rand(3..5).times { tests << Test.create(title: "Test for category: '#{category.title}'", level: rand(1..10), category_id: category.id) }
 end
 
 questions = tests.map do |test|
-  Question.create(body: "Question for test: #{test.title}", test_id: test.id)
+  Question.create(body: "Question for test: '#{test.title}'", test_id: test.id)
 end
 
 answers = questions.map do |question|
-  Answer.create(body: "Answer for question: #{question.body}", question_id: question.id)
+  Answer.create(body: "Answer for question: '#{question.body}'", question_id: question.id)
 end
 
 tests_users = tests.map do |test|
