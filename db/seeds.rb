@@ -16,7 +16,7 @@ categories = Category.create(categories)
 
 tests = []
 categories.map do |category|
-    rand(3..5).times { tests << Test.create(title: "Test for category: '#{category.title}'", level: rand(1..10), category_id: category.id) }
+  3.times { tests << Test.create(title: "Test for category: '#{category.title}'", level: rand(1..10), category_id: category.id,  user_id: User.ids.sample) }
 end
 
 questions = tests.map do |test|
