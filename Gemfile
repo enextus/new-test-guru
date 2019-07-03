@@ -50,6 +50,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'seedbank', '~> 0.5.0'
   gem 'sprig-reap', '~> 0.3.0'
+  gem 'graphviz', '~> 1.1'
+  gem 'ruby-graphviz', '~> 1.2', '>= 1.2.4'
+  gem 'rails-erd', '~> 1.6'
 end
 
 group :test do
