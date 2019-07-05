@@ -11,8 +11,8 @@ class Test < ApplicationRecord
                     uniqueness: true
 
   validates :level, numericality: { only_integer: true }, allow_nil: true
-  # validates :level, presence: true, numericality: { only_integer: true }, allow_nil: true, if: :ruby_tests?
 
+  # validates :level, presence: true, numericality: { only_integer: true }, allow_nil: true, if: :ruby_tests?
   # validate :validate_max_level, on: :create
 
   def self.listing_by_category_title(category_title)
@@ -20,6 +20,7 @@ class Test < ApplicationRecord
   end
 
   private
+  
   #
   # def validate_max_level
   #   errors.add(:level) if level.to_i > 10
