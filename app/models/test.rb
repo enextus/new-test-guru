@@ -24,7 +24,3 @@ class Test < ApplicationRecord
     errors.add(:title, 'is the same by this level was found in db, please use an other title') if Test.where(title: title).where(level: level).count.positive?
   end
 end
-
-# def validate_max_answers_quantity
-#   errors.add(:base, 'the maximum quantity of answers (4) for one question was reached') if Answer.where(question_id: question.id).count >= 4
-# end
