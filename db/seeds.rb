@@ -14,17 +14,16 @@ categories = [
 
 categories = Category.create(categories)
 
-tests = []
-categories.map do |category|
-  10.times { tests << Test.create(title: "Test for category: '#{category.title}, test code: #{rand(100..10000)}'", level: rand(0..10), category_id: category.id,  user_id: User.ids.sample) }
+tests = categories.map do |category|
+  Test.create(title: "Test for category: #{category.title}, test code: #{rand(100..10000)}", level: rand(0..10), category_id: category.id,  user_id: User.ids.sample)
 end
 
 questions = tests.map do |test|
-  Question.create(body: "Question for test: '#{test.title}'", test_id: test.id)
+  Question.create(body: "Question for test: #{test.title}", test_id: test.id)
 end
 
 answers = questions.map do |question|
-  Answer.create(body: "Answer for question: '#{question.body}'", correct: [true, false].shuffle.last, question_id: question.id)
+  Answer.create(body: "Answer for question: #{question.body}", correct: [true, false].shuffle.last, question_id: question.id)
 end
 
 tests_users = tests.map do |test|

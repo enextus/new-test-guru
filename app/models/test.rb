@@ -15,14 +15,15 @@ class Test < ApplicationRecord
 
   scope :by_category, -> (category_title) { joins("INNER JOIN categories ON tests.category_id = categories.id").where("categories.title = :category_title", category_title: category_title) }
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: { scope: :level, message: 'both title, level with same values should happen once per db' }
+
   validates :level, numericality: { only_integer: true, greater_than: 0 }
 
-  validate :validate_titling_by_the_same_level, on: :create
+  # validate :validate_titling_by_the_same_level, on: :create
 
-  private
-
-  def validate_titling_by_the_same_level
-    errors.add(:title, 'is the same by this level was found in db, please use an other title') if Test.where(title: title).where(level: level).count.positive?
-  end
+  # private
+  #
+  # def validate_titling_by_the_same_level
+  #   errors.add(:title, 'is the same by this level was found in db, please use an other title') if Test.where(title: title).where(level: level).count.positive?
+  # end
 end
