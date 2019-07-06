@@ -11,6 +11,8 @@ class Test < ApplicationRecord
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
+  scope :by_level, -> (level) { joins("INNER JOIN tests_users ON tests_users.test_id = tests.id").where(level: level) }
+
   scope :by_category, -> (category_title) { joins("INNER JOIN categories ON tests.category_id = categories.id").where("categories.title = :category_title", category_title: category_title) }
 
   validates :title, presence: true
