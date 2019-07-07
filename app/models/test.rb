@@ -7,7 +7,7 @@ class Test < ApplicationRecord
 
   belongs_to :user
 
-  scope :simple, -> { where(level: 0..1) }
+  scope :simple, -> { by_level(0..1) }
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
