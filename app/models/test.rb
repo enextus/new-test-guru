@@ -17,5 +17,5 @@ class Test < ApplicationRecord
   scope :by_author_name, -> (name) { joins(:user).where(users: { name: name }) }
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
-  validates :title, presence: true, uniqueness: { scope: :level, message: 'and level with the corresponding values already exist in the db' }, on: [:create, :update]
+  validates :title, presence: true, uniqueness: { scope: :level, message: 'and level with the corresponding values already exist in the db' }
 end
