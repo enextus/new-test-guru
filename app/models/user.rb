@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def tests_by_level(level)
-      Test.joins("INNER JOIN tests_users ON tests_users.test_id = tests.id").where(level: level)
+      Test.joins(:tests_users).where(level: level)
   end
 end
