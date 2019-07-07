@@ -12,11 +12,8 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
   scope :by_level, -> (level) { where(level: level) }
-  scope :by_category, -> (category_title) { joins("INNER JOIN categories ON tests.category_id = categories.id").where("categories.title = :category_title", category_title: category_title) }
+  scope :by_category, -> (category_title) { joins(:category).where(categories: { title: category_title }) }
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
-  validates :title, presence: true, uniqueness: { scope: :level, message: 'both title, level with same values should happen once per db' }
+  validates :title, presence: true, uniqueness: { scope: :level, message: 'both title, level with same values should happen once per db' }, on: :create, on: :update
 end
-
-
-# where(categories: { title: category_title })

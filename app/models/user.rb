@@ -6,8 +6,4 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-
-  def tests_by_level(level)
-      Test.joins(:tests_users).where(level: level)
-  end
 end
