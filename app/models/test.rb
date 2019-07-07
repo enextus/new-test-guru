@@ -15,5 +15,5 @@ class Test < ApplicationRecord
   scope :by_category, -> (category_title) { joins(:category).where(categories: { title: category_title }) }
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
-  validates :title, presence: true, uniqueness: { scope: :level, message: ' and level with the corresponding values already exist in the db' }, on: [:create, :update]
+  validates :title, presence: true, uniqueness: { scope: :level, message: 'and level with the corresponding values already exist in the db' }, on: [:create, :update]
 end
