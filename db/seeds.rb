@@ -1,7 +1,7 @@
 users = [
-  { name: 'admin', admin: true },
-  { name: 'adam' },
-  { name: 'max' }
+  { name: 'admin', admin: true, email: 'admin@gmail.com' },
+  { name: 'adam', email: 'adam@gmail.com'  },
+  { name: 'max', email: 'max@gmail.com'  }
 ]
 
 User.create(users)
@@ -16,15 +16,16 @@ categories = Category.create(categories)
 
 tests = []
 categories.map do |category|
-  3.times { tests << Test.create(title: "Test for category: '#{category.title}'", level: rand(1..10), category_id: category.id,  user_id: User.ids.sample) }
+  5.times { tests << Test.create(title: "Test for category: #{category.title}, test code: #{rand(100..10000)}", level: rand(0..10), category_id: category.id,  user_id: User.ids.sample) }
+  tests
 end
 
 questions = tests.map do |test|
-  Question.create(body: "Question for test: '#{test.title}'", test_id: test.id)
+  Question.create(body: "Question for test: #{test.title}", test_id: test.id)
 end
 
 answers = questions.map do |question|
-  Answer.create(body: "Answer for question: '#{question.body}'", question_id: question.id)
+  Answer.create(body: "Answer for question: #{question.body}", correct: [true, false].shuffle.last, question_id: question.id)
 end
 
 tests_users = tests.map do |test|
