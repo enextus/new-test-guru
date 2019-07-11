@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   # match '/tests/:id', to: 'tests#create', via: :all
 
   get '/tests/:id/start', to: 'tests#start'
-  get '/tests/:id/start', to: 'tasks#start'
+  # get '/tests/:id/start', to: 'tasks#start'
 
   root to: 'tests#index'
 end
