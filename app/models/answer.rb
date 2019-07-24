@@ -10,6 +10,6 @@
   private
 
   def validate_max_answers_quantity
-    errors.add(:question_id, 'has a maximum number of answers equal to 4. It is reached.') if Answer.where(question_id: question.id).count >= 4
+    errors.add(:question_id, 'has a maximum count of answers equal to 4. It is reached.') if Answer.where(question_id: question.id).count >= 4
   end
 end
