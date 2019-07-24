@@ -21,9 +21,11 @@ class TestsController < ApplicationController
     # end
   end
 
-  def show
-    redirect_to root_path
-    # redirect_to 'http://rubyonrails.org'
+  def create
+    # pry
+    result = ["1.Class: #{params.class}", "2.Parameters: #{params.inspect}"]
+    render plain: result.join("\n")
+    # byebug
   end
 
   def new
@@ -31,10 +33,8 @@ class TestsController < ApplicationController
     # action_name
   end
 
-  def create
-    # pry
-    result = ["1.Class: #{params.class}", "2.Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
-    # byebug
+  def show
+    redirect_to root_path
+    # redirect_to 'http://rubyonrails.org'
   end
 end
