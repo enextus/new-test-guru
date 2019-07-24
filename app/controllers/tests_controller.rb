@@ -30,4 +30,11 @@ class TestsController < ApplicationController
     # controller_name
     # action_name
   end
+
+  def create
+    # pry
+    result = ["1.Class: #{params.class}", "2.Parameters: #{params.inspect}"]
+    render plain: result.join("\n")
+    # byebug
+  end
 end
