@@ -25,7 +25,6 @@ questions = tests.map do |test|
 end
 
 answers = questions.map do |question|
-  puts "1. question = #{question.inspect}, question.id = #{question.id} "
   Answer.create(body: "Answer for question: #{question.body}", correct: [true, false].shuffle.last, question_id: question.id)
 end
 
