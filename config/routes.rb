@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'tests#index'
+  resources :tests
   #
   # resources :tests
   # resource :account
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   # match '/tests/:id', to: 'tests#create', via: :all
   #
   # get '/tests', to: 'tests#index'
-  get '/tests/:id/start', to: 'tests#start'
+  # get '/tests/:id/start', to: 'tests#start'
   # resources :tests do
   #   resources :questions
   # end
