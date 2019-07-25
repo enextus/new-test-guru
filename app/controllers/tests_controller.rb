@@ -2,8 +2,8 @@ class TestsController < ApplicationController
 
   def index
     # pry
-    result = ["1.Class: #{params.class}", "2.Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+    result = ["class: #{params.class}", "params: #{params.inspect}"]
+    render plain: "All tests \n\n\n#{result.join("\n")}"
     # byebug
     # render html: "<h1>All tests </h1>".html_safe
     # render json: { tests: Test.all }
@@ -34,7 +34,14 @@ class TestsController < ApplicationController
   end
 
   def show
-    redirect_to root_path
+    # redirect_to root_path
     # redirect_to 'http://rubyonrails.org'
+    result = ["Class: #{params.class}", "Params: #{params.inspect}"]
+    render plain: result.join("\n")
+  end
+
+  def start
+    result = ["class: #{params.class}", "parameters: #{params.inspect}"]
+    render plain: "Start certain test \n\n\n#{result.join("\n")}"
   end
 end
