@@ -1,4 +1,10 @@
 class TestsController < ApplicationController
+  # skip_before_action :find_test, only: :show
+  before_action :find_test, only: %i[show]
+  after_action :send_log_message
+  around_action :log_execute_time
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
   def index
     # pry
     result = ["class: #{params.class}", "params: #{params.inspect}"]
@@ -26,10 +32,9 @@ class TestsController < ApplicationController
     # pry
     # byebug
     # test = ["class: #{params.class}", "params: #{params.inspect}"]
-
     # render plain: test_params
     # {"title"=>"Rails Test from Form 23", "level"=>"3"}
-    test_params[:level] = test_params[:level].gsub(/\D/, '').to_i
+    # test_params[:level] = test_params[:level].gsub(/\D/, '').to_i
     test = Test.create(test_params)
     render plain: test.inspect
   end
@@ -42,10 +47,12 @@ class TestsController < ApplicationController
   def show
     # redirect_to root_path
     # redirect_to 'http://rubyonrails.org'
-    redirect_to root_path
     # redirect_to root_url
+    # redirect_to root_path
     # result = ["class: #{params.class}", "params: #{params.inspect}"]
     # render plain: result.join("\n")
+    # title = Test.first.title
+    render inline: '<%= @test.title %>'
   end
 
   def start
@@ -56,8 +63,25 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    # {"title"=>"Rails Test from Form 23", "level"=>"3"}
     params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
 
+  def find_test
+    @test = Test.find(params[:id])
+  end
+
+  def send_log_message
+    logger.info("Action [#{action_name}] was finished")
+  end
+
+  def log_execute_time
+    start = Time.now
+    yield
+    finish = (Time.now - start) * 1000
+    logger.info("Executed time: #{finish}ms")
+  end
+
+  def rescue_with_test_not_found
+    render plain: 'Test was not found!'
+  end
 end

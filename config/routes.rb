@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   root 'tests#index'
-  resources :tests
-  #
+
+  resources :tests do
+    resources :questions, shallow: true
+  end
+
+
+
   # resources :tests
   # resource :account
   # resource :account, controller: :account
   # resources :tests, only: %i[index show]
-  #
-  # resources :tests do
-  #   resources :questions
-  # end
   #
   # resources :tests do
   #   resources :questions, shallow: true
@@ -33,7 +34,4 @@ Rails.application.routes.draw do
   #
   # get '/tests', to: 'tests#index'
   # get '/tests/:id/start', to: 'tests#start'
-  # resources :tests do
-  #   resources :questions
-  # end
 end
