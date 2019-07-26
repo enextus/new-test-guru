@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-
-
   # resources :tests
   # resource :account
   # resource :account, controller: :account
@@ -29,8 +27,8 @@ Rails.application.routes.draw do
   # get '/tests/:id', to: 'tests#show', as: :test
   # get '/tests(/:id)', to: 'tests#show'
   # get '/tests/:id/start', to: 'tasks#start'
+
   # match '/tests/:id', to: 'tests#create', via: %i[post put]
-  #
   # match '/tests/:id', to: 'tests#create', via: :all
   #
   # get '/tests', to: 'tests#index'

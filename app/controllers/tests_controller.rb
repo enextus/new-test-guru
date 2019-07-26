@@ -29,19 +29,21 @@ class TestsController < ApplicationController
   end
 
   def create
+    result = ["parameters: #{params.inspect}", "params[:controller]: #{params[:controller]}", "controller_name: #{controller_name}", "action_name: #{action_name}"]
+    render plain: result.join("\n")
+    #
     # pry
     # byebug
+    #
     # test = ["class: #{params.class}", "params: #{params.inspect}"]
     # render plain: test_params
-    # {"title"=>"Rails Test from Form 23", "level"=>"3"}
-    # test_params[:level] = test_params[:level].gsub(/\D/, '').to_i
-    test = Test.create(test_params)
-    render plain: test.inspect
+    #
+    # test = Test.create(test_params)
+    # render plain: test.inspect
+    #
   end
 
   def new
-    # result = ["params[:controller]: #{params[:controller]}", "parameters: #{params.inspect}", "controller_name: #{controller_name}", "action_name: #{action_name}"]
-    # render plain: result.join("\n")
   end
 
   def show

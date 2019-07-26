@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :find_questions, only: %i[index]
 
   def index
-    render plain: @questions.join("\n")
+    render file: 'app/views/questions/index.html.erb'
   end
 
   private
