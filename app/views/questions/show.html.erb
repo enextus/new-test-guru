@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Test guru</title>
 </head>
 <body>
-  <h1>Вопрос с ID <%= params[:id] %> у <%= params[:test_id] %>-го теста гласит:</h1>
-  <%= @question.first.body %>
+  <h1>Вопрос с <%= params[:id] %>-м ID у <%= params[:test_id] %>-го теста гласит:</h1>
+  <!-- <%= @question.first.body unless @question.count.zero? %> -->
+  <%= @question.first.body  %>
 </body>
 </html>

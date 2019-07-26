@@ -50,7 +50,7 @@ class TestsController < ApplicationController
     # redirect_to root_path
     # redirect_to 'http://rubyonrails.org'
     # redirect_to root_url
-    # redirect_to root_path
+    #
     # result = ["class: #{params.class}", "params: #{params.inspect}"]
     # render plain: result.join("\n")
     # title = Test.first.title
