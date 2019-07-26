@@ -8,7 +8,6 @@
 </head>
 <body>
   <h1>Вопрос с <%= params[:id] %>-м ID у <%= params[:test_id] %>-го теста гласит:</h1>
-  <!-- <%= @question.first.body unless @question.count.zero? %> -->
-  <%= @question.first.body  %>
+  <%= @question.first.body unless @question.count.zero? %>
 </body>
 </html>
