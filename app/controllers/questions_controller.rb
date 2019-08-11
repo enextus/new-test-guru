@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    find_question
+    @question = Question.where(test_id: params[:test_id], id: params[:id])
   end
 
   def create
@@ -23,10 +23,6 @@ class QuestionsController < ApplicationController
 
   def find_questions
     @questions = Question.where(test_id: params[:test_id])
-  end
-
-  def find_question
-    @question = Question.where(test_id: params[:test_id], id: params[:id])
   end
 
   def question_params
