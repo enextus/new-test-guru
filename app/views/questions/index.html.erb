@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test guru</title>
-</head>
-<body>
   <h1>Список вопросов теста номер: <%= params[:test_id] %></h1>
   <ol>
      <% @questions.map do |e| %>
        <li><%= e.body %></li>
      <% end %>
   </ol>
-</body>
-</html>
