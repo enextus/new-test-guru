@@ -1,6 +1,6 @@
   <h1>Список вопросов теста номер: <%= params[:test_id] %></h1>
   <ol>
-     <% @questions.map do |e| %>
+     <% @questions.each do |e| %>
        <li><%= e.body %></li>
      <% end %>
   </ol>

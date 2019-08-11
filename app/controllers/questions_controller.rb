@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_questions, only: %i[index]
 
-
   def index
   end
 
