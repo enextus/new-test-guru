@@ -9,14 +9,14 @@ User.create(users)
 categories = [
   { title: 'Frontend' },
   { title: 'Backend' },
-  { title: 'DevOps' }
+  { title: 'DevOps' },
 ]
 
 categories = Category.create(categories)
 
 tests = []
 categories.map do |category|
-  5.times { tests << Test.create(title: "Test for category: #{category.title}, test code: #{rand(100..10000)}", level: rand(0..10), category_id: category.id,  user_id: User.ids.sample) }
+  4.times { tests << Test.create(title: "Test for category: #{category.title}, test code: #{rand(100..10000)}", level: rand(1..10), category_id: category.id,  user_id: User.ids.sample) }
   tests
 end
 

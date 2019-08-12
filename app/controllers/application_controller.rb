@@ -1,25 +1,5 @@
-#
-# require 'rubygems'
-# require 'graphviz'
-# require 'ruby-graphviz'
-# require 'rails-erd'
-
-
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 end
-
-
-
-# @@g = Graphviz::Graph.new
-
-#foo = g.add_node("Foo")
-# foo.add_node("Bar")
-#
-# foo.attributes[:shape] = 'box3d'
-# foo.attributes[:color] = 'red'
-#
-# # Dup the dot data:
-# puts g.to_dot
-#
-# # Process the graph to output:
-# Graphviz::output(g, :path => "test.pdf")
