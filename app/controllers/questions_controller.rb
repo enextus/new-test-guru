@@ -5,12 +5,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.where(test_id: params[:test_id], id: params[:id])
+    @question = Question.find(params[:id])
   end
 
   def create
-    question = Question.create(question_params)
-    redirect_to test_questions_path(question_params[:test_id])
+    @question = Question.create(question_params)
+    redirect_to question
   end
 
   def destroy
@@ -19,6 +19,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def question
+    @question
+  end
 
   def find_questions
     @questions = Question.where(test_id: params[:test_id])
