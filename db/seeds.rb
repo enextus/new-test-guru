@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+users = [
+  { name: 'admin', admin: true, email: 'admin@gmail.com' },
+  { name: 'adam', email: 'adam@gmail.com'  },
+  { name: 'max', email: 'max@gmail.com'  }
+]
+
+User.create(users)
+
+categories = [
+  { title: 'Frontend' },
+  { title: 'Backend' },
+  { title: 'DevOps' },
+]
+
+categories = Category.create(categories)
+
+tests = []
+categories.map do |category|
+  4.times { tests << Test.create(title: "Test for category: #{category.title}, test code: #{rand(100..10000)}", level: rand(1..10), category_id: category.id,  user_id: User.ids.sample) }
+  tests
+end
+
+questions = tests.map do |test|
+  Question.create(body: "Question for test: #{test.title}", test_id: test.id)
+end
+
+answers = questions.map do |question|
+  Answer.create(body: "Answer for question: #{question.body}", correct: [true, false].shuffle.last, question_id: question.id)
+end
+
+tests_users = tests.map do |test|
+  TestsUser.create(test_id: test.id, user_id: User.ids.sample, progress: rand(1..100))
+end
