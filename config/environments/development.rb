@@ -28,8 +28,9 @@ Rails.application.configure do
   end
 
   # # Store uploaded files on the local file system (see config/storage.yml for options)
+    # https://mikerogers.io/2018/04/13/remove-activestorage-from-rails-5-2.html
+
   # config.active_storage.service = :local
-  # https://mikerogers.io/2018/04/13/remove-activestorage-from-rails-5-2.html
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
